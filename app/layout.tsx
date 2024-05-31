@@ -1,8 +1,17 @@
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
+
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 
 const font = Nunito({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider afterSignInUrl={"/learn"}  afterSignUpUrl={"/learn"}>
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+   
+        {children}</body>
     </html>
+    </ClerkProvider>
   );
 }
