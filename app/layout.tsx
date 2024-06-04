@@ -5,7 +5,7 @@ import {
   SignedOut,
   UserButton
 } from '@clerk/nextjs'
-
+import { Toaster } from 'sonner';
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
@@ -27,8 +27,9 @@ export default function RootLayout({
     <ClerkProvider afterSignInUrl={"/learn"}  afterSignUpUrl={"/learn"}>
     <html lang="en">
       <body className={font.className}>
-   
-        {children}</body>
+        <Toaster />
+        {children}
+        </body>
     </html>
     </ClerkProvider>
   );

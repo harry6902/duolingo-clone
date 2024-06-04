@@ -1,12 +1,16 @@
 import { Button } from "@/components/ui/button";
+import { getUserProgress } from "@/db/dbqueries";
+
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+
 
 type Props={
     title:string;
 }
 
-export const Header =({title}:Props)=>{
+export const Header =async({title}:Props)=>{
+
    return (
     <div className=" sticky top-0 bg-white pb-3 lg:pt-[28px] lg:mt-[-28px] flex items-center justify-between border-b-2 text-neutral-400 lg:z-[40]
     ">
